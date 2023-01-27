@@ -4,7 +4,9 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 import Home from "@/pages/Home.vue";
-import Example from "@/pages/Example.vue";
+import Shop from "@/pages/Shop.vue";
+import NotFound from '@/pages/404.vue'
+
 
 const routes = [
 	{
@@ -13,12 +15,18 @@ const routes = [
 		component: Home,
 	},
 	{
-		path: '/example',
-		name: 'example',
-		component: Example,
+		path: '/shop',
+		name: 'shop',
+		component: Shop,
+	},
+	{
+		path: '*',
+		name: 'notFound',
+		component: NotFound,
 	},
 ]
 const router = new Router({
+	mode: 'history',
 	routes,
 })
 export default router
