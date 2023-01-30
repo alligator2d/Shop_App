@@ -48,5 +48,7 @@ export default {
 }
 .navbar-link:hover{
   color: #444ce0;
+  text-shadow: 1px 1px 2px blue;
+  
 }
 </style>

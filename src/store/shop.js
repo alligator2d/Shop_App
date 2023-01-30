@@ -42,7 +42,7 @@ export default {
 				descr: "Air Force 1 — кроссовки, вышедшие в свет в 1982 году, на создание которых дизайнера Брюса Килгора вдохновил президентский одноимённый самолёт. Модель не только успела побывать самой неубиваемой баскетбольной обувью, но и стала самой популярной и продаваемой моделью бренда Nike. Air Force 1 — классика для любого гардероба. .",
 				img: require("../assets/img/10.png"),
 				gallery: [
-					{ name: "Nike boots Ten", img: require("../assets/img/10.png") },
+					// { name: "Nike boots Ten", img: require("../assets/img/10.png") },
 					{ name: "Nike boots Eleven", img: require("../assets/img/11.png") },
 					{ name: "Nike boots Twelve", img: require("../assets/img/12.png") }
 				]

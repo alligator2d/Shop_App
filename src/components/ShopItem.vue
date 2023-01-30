@@ -30,5 +30,7 @@ export default {
 p {
   font-size: 22px;
 }
-
+.link:hover{
+  text-shadow: 1px 1px 2px blue;
+}
 </style>
