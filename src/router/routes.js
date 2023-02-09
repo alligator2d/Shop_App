@@ -7,6 +7,8 @@ import Home from "@/pages/Home.vue";
 import Shop from "@/pages/Shop.vue";
 import Product from "@/pages/Product.vue";
 import NotFound from '@/pages/404.vue'
+import Modals from "@/pages/Modals.vue";
+import MyNotes from "@/pages/MyNotes.vue";
 
 
 const routes = [
@@ -24,6 +26,16 @@ const routes = [
 		path: '/shop/:id',
 		name: 'product',
 		component: Product,
+	},
+	{
+		path: '/modals',
+		name: 'modals',
+		component: Modals,
+	},
+	{
+		path: '/notes',
+		name:'notes',
+		component: MyNotes,
 	},
 	{
 		path: '*',

@@ -1,8 +1,12 @@
 <template>
-	<div class="item">
-		<img :src="product.img" :alt="product.title">
-		<router-link :to="/shop/ + product.id" class="link">{{product.title}}</router-link>
-	</div>
+	
+	<router-link class="item" :to="/shop/ + product.id">
+		<div class="item__product">
+			<img :src="product.img" :alt="product.title" >
+		<div class="product__text"> {{product.title}}</div>	
+		</div>
+		</router-link>
+	
 </template>
 
 <script>
@@ -30,7 +34,22 @@ export default {
 p {
   font-size: 22px;
 }
-.link:hover{
-  text-shadow: 1px 1px 2px blue;
+
+.item__product {
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  transition: all .25s cubic-bezier(.02,.01,.47,1);
+  box-shadow: 0 30px 30px rgba(0,0,0,.02);
+}
+.product__text {
+  color: #444ce0;
+}
+.item__product:hover {
+  color: #444ce0;
+  text-shadow: 1px 1px 1px blue;
+  box-shadow: 0 30px 30px rgba(0,0,0,0.4);
+  transform: translate(0,-6px);
+  transition-delay: 0s !important;
+  
 }
 </style>

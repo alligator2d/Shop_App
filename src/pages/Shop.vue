@@ -17,16 +17,29 @@
 
 <script>
 import ShopItem from "@/components/ShopItem.vue";
+import { createNamespacedHelpers } from "vuex";
+import {gettersTypes, actionTypes, mutationTypes} from "@/store/Shop/types";
+const {mapState, mapActions, mapGetters, mapMutations } = createNamespacedHelpers('shopModule')
 
 export default {
 	data() {
 		return {
-			shopList: null
+			// shopList: null
 			
 		};
 	},
-	created() {
-		this.shopList = this.$store.getters.getShopList;
+	// created() {
+	// 	this.shopList = this.$store.getters.getShopList;
+	// },
+	computed: {
+		...mapState({
+			shopList: state => state.shopList
+		})
+	},
+	methods: {
+		...mapGetters({
+			getProduct: actionTypes.getProduct
+		})
 	},
 	components: {
 		ShopItem

@@ -3,10 +3,12 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-import shop from './shop'
+import {shopModule} from '@/store/Shop/shop'
+import {notesModule} from "@/store/Notes/Notes";
 
 export default new Vuex.Store({
 	modules:{
-		shop
+		shopModule,
+		notesModule
 	}
 });

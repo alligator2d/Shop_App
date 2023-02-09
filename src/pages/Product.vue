@@ -29,17 +29,40 @@
 </template>
 
 <script>
+import { createNamespacedHelpers } from "vuex";
+import {gettersTypes, actionTypes, mutationTypes} from "@/store/Shop/types";
+const {mapState, mapActions, mapGetters, mapMutations } = createNamespacedHelpers('shopModule')
+
 export default {
 	data() {
 		return {
 			product: null,
 		};
 	},
+	methods: {
+		addId() {
+			let id = this.$route.params.id;
+			this.product = this.getProduct(id);
+		}
+	},
 	created() {
-		let id = this.$route.params.id;
-		 this.product = this.$store.getters.getProduct(id);
+		this.addId()
+		// let id = this.$route.params.id;
+		//  this.product = this.$store.getters.getProduct(id);
+		
+		// this.product = this.getProduct(id);
+		
 		// console.log(this.product);
-	}
+	},
+	computed: {
+		...mapState({
+			links: state => state.links
+		}),
+		...mapGetters({
+			getProduct: gettersTypes.getProduct
+		}),
+		
+	},
 };
 </script>
 
