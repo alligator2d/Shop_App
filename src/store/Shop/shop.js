@@ -69,6 +69,10 @@ export const shopModule = {
 			{
 				title: 'Notes',
 				url: '/notes'
+			},
+			{
+				title: 'usersCRM',
+				url: '/usersCRM',
 			}
 		]
 	},
