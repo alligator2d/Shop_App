@@ -9,9 +9,9 @@
 				<table>
 					<thead>
 					<tr>
-						<th @click="sort('firstName')">Name</th>
-						<th @click="sort('age')">Age</th>
-						<th @click="sort('gender')">Gender</th>
+						<th @click="sort('firstName')">Name &#8595</th>
+						<th @click="sort('age')">Age &#8595</th>
+						<th @click="sort('gender')">Gender &#8595</th>
 					</tr>
 					</thead>
 					
@@ -27,8 +27,22 @@
 					
 					</tbody>
 				</table>
-				<p>debug: sort: {{ currentSort }}, dir: {{ currentSortDir }}</p>
+				
 			</div>
+		</section>
+		
+		<section>
+			<div class="container">
+				<div class="button-list">
+					<button class="btn btnDefaul" @click="prevPage">&#8592</button>
+					<button class="btn btnDefaul" @click="nextPage">&#8594</button>
+				</div>
+			</div>
+			<p class="debug">
+				<span>debug... sort: {{ currentSort }}, dir: {{ currentSortDir }}</span>
+				<br>
+				<span>page: {{ this.page.current}}, length: {{this.page.length}}</span>
+			</p>
 		</section>
 	</div>
 </template>
@@ -43,7 +57,11 @@ export default {
 			users: [],
 			isPostLoading: false,
 			currentSort: "name",
-			currentSortDir: "asc"
+			currentSortDir: "asc",
+			page: {
+				current:1,
+				length:5,
+			}
 		};
 	},
 	methods: {
@@ -68,8 +86,20 @@ export default {
 				this.currentSortDir = this.currentSortDir === "asc" ? "desc" : "asc";
 			}
 			this.currentSort = e;
-		}
+		},
+		//Pagination
+		prevPage() {
+			if (this.page.current > 1) {
+				this.page.current--
+			}
+		},
+		nextPage() {
+			if ((this.page.current * this.page.length) < this.users.length) {
+				this.page.current++
+			}
+		},
 	},
+	
 	computed: {
 		usersSort() {
 			return this.users.sort((a, b) => {
@@ -78,6 +108,10 @@ export default {
 				if(a[this.currentSort] < b[this.currentSort]) return -1 * mod;
 				if(a[this.currentSort] > b[this.currentSort]) return mod;
 				return 0;
+			}).filter((row, index) => {
+				let start = (this.page.current-1) * this.page.length
+				let end = this.page.current * this.page.length
+				if (index >= start && index < end) return true
 			});
 		}
 	},
@@ -92,4 +126,24 @@ export default {
 	width: 50px;
 	margin-right: 15px;
 }
+.btn {
+	padding: 10px;
+	margin: 5px;
+	
+}
+.btnDefaul:hover {
+	 box-shadow: 0 30px 30px rgba(0,0,0,0.4);
+	 transform: translate(0,-3px);
+	 transition-delay: 0s !important;
+ }
+
+.button-list {
+	display: flex;
+	justify-content: center;
+}
+.debug {
+	margin-top: 10px;
+	text-align: center;
+}
+
 </style>
