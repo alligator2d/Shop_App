@@ -73,6 +73,10 @@ export const shopModule = {
 			{
 				title: 'usersCRM',
 				url: '/usersCRM',
+			},
+			{
+				title: 'Notify',
+				url: '/notify'
 			}
 		]
 	},

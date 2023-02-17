@@ -10,7 +10,7 @@ import NotFound from '@/pages/404.vue'
 import Modals from "@/pages/Modals.vue";
 import MyNotes from "@/pages/MyNotes.vue";
 import UsersCRM from "@/pages/usersCRM.vue";
-
+import Notify from "@/pages/Notify.vue";
 
 const routes = [
 	{
@@ -42,6 +42,11 @@ const routes = [
 		path: '/usersCRM',
 		name:'usersCRM',
 		component: UsersCRM
+	},
+	{
+		path: '/notify',
+		name: 'notify',
+		component: Notify
 	},
 	{
 		path: '*',

@@ -67,13 +67,11 @@ export default {
 	methods: {
 		async fetchUsers() {
 			try {
-				console.log("loading");
 				this.isPostLoading = true;
 				setTimeout(async () => {
 					const res = await axios.get("https://dummyjson.com/users?limit=20");
 					this.users = res.data.users;
-					console.log(this.users);
-					console.log("loading over");
+					// console.log(this.users);
 					this.isPostLoading = false;
 				}, 1000);
 				
