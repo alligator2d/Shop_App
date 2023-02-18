@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     maxLength () {
-      return this.$store.getters.getMessageFilter.length
+      // return this.$store.getters.getMessageFilter.length
     }
   },
   methods: {

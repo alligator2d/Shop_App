@@ -27,7 +27,7 @@
 <script>
 import { createNamespacedHelpers } from "vuex";
 import { gettersTypes, actionTypes, mutationTypes } from "@/store/Shop/types";
-const { mapState, mapActions, mapGetters, mapMutations } = createNamespacedHelpers("shopModule");
+const { mapState, mapActions, mapGetters, mapMutations } = createNamespacedHelpers("shopModule"); 
 
 export default {
 	data() {

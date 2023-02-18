@@ -5,10 +5,13 @@
 				<div class="notify__wrapper">
 					<div class="notify-title">
 						<p>Notify App</p>
+						<img src="../assets/reload.svg" alt="update" @click="fetchMessage">
 					</div>
-					
 					<div class="notify__content">
+					<Preloader v-if="loading" :width="100" :height="100">
+					</Preloader>
 						<MyNotify
+							v-if="!loading"
 							:messages="messages"
 						></MyNotify>
 					</div>
@@ -20,21 +23,46 @@
  
 <script>
 import MyNotify from "@/components/Notify/myNotify.vue";
+import Preloader from "@/components/Notify/Preloader.vue";
+import axios from "axios";
+import { createNamespacedHelpers } from "vuex";
+const {mapState, mapActions, mapGetters, mapMutations } = createNamespacedHelpers('notifyModule')
+
+
 export default {
 name: "Notify",
 	data() {
 		return {
-			messages: [
-				{ title: 'message 1' },
-				{ title: 'message 2' },
-				{ title: 'message 3' },
-				{ title: 'message 4' },
-				{ title: 'message 5' },
-				{ title: 'message 6' },
-			]
+			// messages: [],
+			loading: false
 		};
 	},
-	components: { MyNotify },
+	methods: {
+		async fetchMessage() {
+			try {
+				this.loading = true;
+				setTimeout(async () => {
+					const res = await axios.get("http://localhost:8888/notifyApi.php");
+					// this.messages = res.data.notify
+					await this.$store.dispatch('setMessages', res.data.notify)
+					this.loading = false;
+				}, 2000);
+				
+			} catch (error) {
+				console.log(error);
+			} finally {
+			}
+		},
+	},
+	mounted() {
+		this.fetchMessage()
+	},
+	computed: {
+		messages () {
+			return this.$store.getters.getMessages
+		}
+	},
+	components: { Preloader, MyNotify },
 }
 </script>
 
@@ -58,9 +86,15 @@ name: "Notify",
   flex-direction: column;
   min-height: 300px;
 }
-.notify-item {
+.notify-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   p {
 	font-size: 24px;
+  }
+  img {
+	cursor: pointer;
   }
 }
 </style>
