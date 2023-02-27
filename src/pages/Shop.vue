@@ -23,10 +23,7 @@ const {mapState, mapActions, mapGetters, mapMutations } = createNamespacedHelper
 
 export default {
 	data() {
-		return {
-			// shopList: null
-			
-		};
+		return {};
 	},
 	// created() {
 	// 	this.shopList = this.$store.getters.getShopList;

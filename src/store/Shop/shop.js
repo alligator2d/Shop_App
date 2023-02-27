@@ -76,7 +76,13 @@ export const shopModule = {
 			{
 				title: 'Notify',
 				url: '/notify'
-			}
+			},
+			{
+				title: 'GitHub',
+				url: '/github-finder'
+			},
+			
+			
 		]
 	},
 	

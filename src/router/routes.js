@@ -11,6 +11,7 @@ import Modals from "@/pages/Modals.vue";
 import MyNotes from "@/pages/MyNotes.vue";
 import UsersCRM from "@/pages/usersCRM.vue";
 import Notify from "@/pages/Notify.vue";
+import Github from "@/pages/Github.vue";
 
 const routes = [
 	{
@@ -49,10 +50,16 @@ const routes = [
 		component: Notify
 	},
 	{
+		path: '/Github-Finder',
+		name: 'github',
+		component: Github
+	},
+	{
 		path: '*',
 		name: 'notFound',
 		component: NotFound,
 	},
+	
 ]
 const router = new Router({
 	mode: 'history',

@@ -65,6 +65,7 @@ export default {
 				await this.$store.dispatch("setMessagesMain", messagesMain);
 			} catch (e) {
 				console.log(e);
+				console.log('LocalHost is off now =)');
 				this.error = e.name;
 			} finally {
 				this.loading = false;
