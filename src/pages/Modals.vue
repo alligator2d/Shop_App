@@ -1,4 +1,4 @@
-<template>
+ <template>
 	<div class="wrapper-content wrapper-content--fixed">
 		<section>
 			<div class="container">
@@ -57,6 +57,7 @@
 <script>
 import modalValidate from "@/components/Modal/ModalValidate.vue";
 import Modal from "@/components/Modal/UI/Modal.vue";
+import axios from "axios";
 export default {
 name: "Modals",
 	data() {
@@ -78,6 +79,11 @@ name: "Modals",
 	},
 	methods: {
 		submitSecondForm() {
+			axios
+			.post('https://site.com/...', {
+				name: this.modalSecond.name,
+				email: this.modalSecond.email
+			})
 			console.log({
 				name: this.modalSecond.name,
 				email: this.modalSecond.email
