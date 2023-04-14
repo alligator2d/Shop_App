@@ -67,7 +67,6 @@ name: "MyNotes",
 		...mapState({
 			notes: state => state.notes,
 			title: state => state.title,
-			// message: state => state.message
 		}),
 		
 		notesFilter() {
@@ -111,9 +110,6 @@ name: "MyNotes",
 			note.descr = "";
 			this.message = null;
 		}
-		// removeNote(id){
-		// 	this.notes = this.notes.filter(i => i.id !== id);
-		// }
 	},
 	components: {
 		Search,

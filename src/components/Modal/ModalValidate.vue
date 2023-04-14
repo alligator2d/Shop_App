@@ -31,8 +31,6 @@
 				
 				<button class="btn btnPrimary">Submit</button>
 			</form>
-		
-		
 		</div>
 	</modal>
 </template>

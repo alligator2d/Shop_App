@@ -25,22 +25,16 @@ export default {
 	data() {
 		return {};
 	},
-	// created() {
-	// 	this.shopList = this.$store.getters.getShopList;
-	// },
 	computed: {
 		...mapState({
 			shopList: state => state.shopList
-		})
-	},
-	methods: {
+		}),
 		...mapGetters({
 			getProduct: actionTypes.getProduct
 		})
 	},
-	components: {
-		ShopItem
-	}
+
+	components: { ShopItem }
 	
 };
 </script>

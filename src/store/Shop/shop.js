@@ -87,9 +87,6 @@ export const shopModule = {
 	},
 	
 	getters: {
-		// [gettersTypes.getProduct]({commit, state}, value) {
-		// 	return state.shopList.find(product => product.id == value)
-		// },
 		[gettersTypes.getProduct]: state => (id) => {
 			return state.shopList.find(product => product.id == id)
 		},
@@ -97,10 +94,6 @@ export const shopModule = {
 		getShopList(state) {
 			return state.shopList;
 		},
-		
-		// getProduct: (state) => (id) => {
-		// 	return state.shopList.find(product => product.id == id);
-		// }
 	},
 	action: {},
 	mutations: {

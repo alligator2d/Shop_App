@@ -47,12 +47,6 @@ export default {
 	},
 	created() {
 		this.addId()
-		// let id = this.$route.params.id;
-		//  this.product = this.$store.getters.getProduct(id);
-		
-		// this.product = this.getProduct(id);
-		
-		// console.log(this.product);
 	},
 	computed: {
 		...mapState({

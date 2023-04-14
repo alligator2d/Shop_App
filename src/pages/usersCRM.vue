@@ -71,7 +71,6 @@ export default {
 				setTimeout(async () => {
 					const res = await axios.get("https://dummyjson.com/users?limit=20");
 					this.users = res.data.users;
-					// console.log(this.users);
 					this.isPostLoading = false;
 				}, 1000);
 				
